@@ -4,7 +4,8 @@
 .DS_Store
 .AppleDouble
 .LSOverride
-Icon?
+/# 仅忽略仓库根目录可能存在的 macOS Finder 图标占位文件（避免误伤 assets/icons）
+/Icon?
 .Spotlight-V100
 .Trashes
 ehthumbs.db
