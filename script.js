@@ -35,7 +35,7 @@
   });
   // 初次渲染按钮与主题
   if (globalMode) {
-    timeToggle.innerHTML = `<img src="assets/icons/button/Countdown.png" alt="倒计时切换" title="倒计时切换" style="width:16px;height:16px;object-fit:contain;filter:brightness(0.95)">`;
+    timeToggle.innerHTML = `<img src="./assets/icons/button/Countdown.png" alt="倒计时切换" title="倒计时切换" style="width:16px;height:16px;object-fit:contain;filter:brightness(0.95)">`;
     timeToggle.setAttribute('aria-label', '倒计时切换');
     document.querySelector('.mw-container')?.classList.add('global-mode');
     timeToggle.classList.toggle('is-active', countdownMode);
@@ -54,7 +54,7 @@
     countdownMode = false;
     if (globalMode) {
       if (!mobileWeatherFilter) mobileWeatherFilter = 'clearSkies';
-      timeToggle.innerHTML = `<img src="assets/icons/button/Countdown.png" alt="倒计时切换" title="倒计时切换" style="width:16px;height:16px;object-fit:contain;filter:brightness(0.95)">`;
+      timeToggle.innerHTML = `<img src="./assets/icons/button/Countdown.png" alt="倒计时切换" title="倒计时切换" style="width:16px;height:16px;object-fit:contain;filter:brightness(0.95)">`;
       timeToggle.setAttribute('aria-label', '倒计时切换');
       document.querySelector('.mw-container')?.classList.add('global-mode');
       timeToggle.classList.toggle('is-active', countdownMode);
@@ -229,8 +229,8 @@
 
   function getWeatherIconPath(weatherKey) {
     const name = M_WEATHER_NAME_CN[weatherKey] || '';
-    if (!name) return 'assets/icons/weather/晴朗.png';
-    return `assets/icons/weather/${name}.png`;
+    if (!name) return './assets/icons/weather/晴朗.png';
+    return `./assets/icons/weather/${name}.png`;
   }
   function formatLT(realUnixMs) {
     const d = new Date(realUnixMs); const hh = String(d.getHours()).padStart(2, '0'); const mm = String(d.getMinutes()).padStart(2, '0'); const ss = String(d.getSeconds()).padStart(2, '0'); return `${hh}:${mm}:${ss}`;
