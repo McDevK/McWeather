@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>McWeather - 天气预报</title>
+  <link rel="icon" type="image/webp" sizes="32x32" href="assets/icons/favicon/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-theme="light">
+  <main class="mw-container" id="mwContainer">
+    <header class="mw-header">
+      <div class="mw-title"><i class="fas fa-cloud-sun"></i><span>QQ14 天气预报</span></div>
+      <div class="mw-actions">
+        <button class="mw-btn m-weather-time" id="mobileWeatherTimeToggle" title="ET/LT" aria-label="切换时间显示">
+          <span style="user-select:none;-webkit-user-select:none;font-weight:800;">LT</span>
+        </button>
+        <button class="mw-btn m-weather-time" id="mobileWeatherModeToggle" title="全局天气搜索" aria-label="全局天气搜索">
+          <img src="assets/icons/button/switch.png" alt="Global" style="width:16px;height:16px;object-fit:contain;filter:brightness(0.95)">
+        </button>
+        <button class="mw-btn m-weather-time" id="mwThemeToggle" title="白天/夜晚" aria-label="白天/夜晚">
+          <i class="fas fa-sun"></i>
+        </button>
+      </div>
+    </header>
+    <section class="mw-body" id="mwBody">
+      <div class="m-weather-controls">
+        <select id="mobileWeatherZoneSelect" class="m-weather-select" aria-label="选择地区"></select>
+        <span class="m-weather-tip">每8艾欧泽亚小时刷新</span>
+      </div>
+      <div class="m-weather-icons" id="mobileWeatherIcons" aria-label="天气类型快速查看"></div>
+      <!-- 提示区：绿色/红色倒计时说明，可关闭并持久化 -->
+      <div class="m-weather-hints" id="mwHints" aria-live="polite">
+        <div class="hints-body">
+          <div class="hint-line hint-green">绿色倒计时为当前天气剩余时间</div>
+          <div class="hint-line hint-red">红色倒计时为距离天气开始时间</div>
+        </div>
+        <button class="hint-close" id="mwHintsClose" title="不再提示" aria-label="不再提示"></button>
+      </div>
+      <div class="m-weather-list" id="mobileWeatherList"></div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('sw.js');
+      });
+    }
+  </script>
+</body>
+</html>
+
+
